@@ -1,3 +1,4 @@
+
 "use client";
 
 import React from "react";
@@ -91,6 +92,7 @@ const FormField = ({
           field.onChange(updatedDate.toISOString());
         };
 
+
         return (
           <Field data-invalid={fieldState.invalid}>
             <FieldLabel htmlFor={name}>{label}</FieldLabel>
@@ -121,7 +123,7 @@ const FormField = ({
                       <Button
                         variant="outline"
                         id={id}
-                        className="flex-1 w-full justify-between font-normal rounded-sm h-12 px-3 border border-input bg-background hover:bg-accent hover:text-accent-foreground"
+                        className="flex-1 w-full justify-between font-normal rounded-sm h-12 px-3 border border-input bg-background"
                       >
                         {currentDate ? format(currentDate, "PPP") : <span>{placeholder}</span>}
                         <CalendarIcon className="h-4 w-4 opacity-50 shrink-0 ml-2" />

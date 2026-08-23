@@ -103,7 +103,7 @@ export default function Home() {
 
   return (
     <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-16 md:py-32 px-10 md:px-16 sm:items-start">
+      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between px-10 md:p-16 sm:items-start">
         <MatchingForm
           submitHandler={handleFindMatching}
           isLoading={isMatchingLoading}
