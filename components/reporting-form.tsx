@@ -12,12 +12,12 @@ import { Loader2 } from "lucide-react";
 import { reportFormSchema } from "@/lib/schemas";
 import { FieldDescription, FieldGroup } from "./ui/field";
 
-interface MatchingFormProps {
+interface ReportingFormProps {
   submitHandler: (arg: Report) => void;
   isLoading: boolean;
 }
 
-const MatchingForm: React.FC<MatchingFormProps> = ({
+const ReportingForm: React.FC<ReportingFormProps> = ({
   submitHandler,
   isLoading,
 }) => {
@@ -26,7 +26,7 @@ const MatchingForm: React.FC<MatchingFormProps> = ({
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      type: "LOST",
+      type: "",
       itemName: "",
       description: "",
       category: "",
@@ -39,7 +39,7 @@ const MatchingForm: React.FC<MatchingFormProps> = ({
   const onSubmit = async (data: z.infer<typeof formSchema>) => {
     try {
       submitHandler({
-        type: "LOST",
+        type: data.type!,
         itemName: data.itemName!,
         description: data.description!,
         category: data.category!,
@@ -59,12 +59,12 @@ const MatchingForm: React.FC<MatchingFormProps> = ({
         <div className="flex flex-col gap-1 mb-12">
           <h1 className="text-3xl font-bold text-foreground mb-2">Welcome!</h1>
           <FieldDescription className="text-muted-foreground text-sm text-balance">
-            Are you here to report a lost item?{" "}
+            Are you here to find a lost item?{" "}
             <Link
-              href="/report"
+              href="/"
               className="text-blue-700 no-underline! hover:text-blue-800!"
             >
-              Go to the reporting form
+              Go find your items
             </Link>
           </FieldDescription>
         </div>
@@ -107,17 +107,30 @@ const MatchingForm: React.FC<MatchingFormProps> = ({
 
           <FormField
             control={form.control}
-            name="location"
-            label="Location"
-            placeholder="Where did you lose the item?"
-            id="location"
+            name="type"
+            label="Type"
+            placeholder="Item type"
+            id="type"
+            type="select"
+            options={[
+              { value: "LOST", label: "Lost" },
+              { value: "FOUND", label: "Found" },
+            ]}
           />
         </div>
 
         <FormField
           control={form.control}
+          name="location"
+          label="Location"
+          placeholder="Where did you find the item?"
+          id="location"
+        />
+
+        <FormField
+          control={form.control}
           name="reportedAt"
-          label="When did you lose it?"
+          label="When did you find or lose it?"
           placeholder="Pick the date"
           id="reportedAt"
           type="date"
@@ -144,7 +157,7 @@ const MatchingForm: React.FC<MatchingFormProps> = ({
                 <Loader2 size={20} className="animate-spin" /> &nbsp; Loading...
               </>
             ) : (
-              "Find Match"
+              "Report Item"
             )}
           </Button>
         </div>
@@ -153,4 +166,4 @@ const MatchingForm: React.FC<MatchingFormProps> = ({
   );
 };
 
-export default MatchingForm;
+export default ReportingForm;
