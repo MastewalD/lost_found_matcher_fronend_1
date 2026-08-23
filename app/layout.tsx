@@ -1,10 +1,9 @@
 import type { Metadata } from "next";
 import { urbanist } from "@/fonts";
 import "./globals.css";
-import { Geist } from "next/font/google";
 import { cn } from "@/lib/utils";
+import LeftContainer from "@/components/left-container";
 
-const geist = Geist({subsets:['latin'],variable:'--font-sans'});
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -15,9 +14,17 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en"
-      className={cn("h-full", "antialiased", urbanist.variable, "font-sans", geist.variable)}
+      className={cn(
+        "h-full scrollbar-none",
+        "antialiased",
+        urbanist.variable,
+        "font-sans",
+      )}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full flex flex-col md:flex-row">
+        <LeftContainer />
+        {children}
+      </body>
     </html>
   );
 }
