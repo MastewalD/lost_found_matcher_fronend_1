@@ -7,7 +7,7 @@ import { useReportLostItemsMutation } from "@/redux/services/matchingApiSlice";
 export default function Home() {
   const [reportLostItems, { isLoading }] = useReportLostItemsMutation();
 
-  async function handleReportLostItems(data: Report) {
+  async function handleReportLostItems(data: ReportPaylod) {
     const userData = {
       type: data.type,
       itemName: data.itemName,

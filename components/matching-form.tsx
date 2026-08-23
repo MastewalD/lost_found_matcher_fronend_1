@@ -13,7 +13,7 @@ import { reportFormSchema } from "@/lib/schemas";
 import { FieldDescription, FieldGroup } from "./ui/field";
 
 interface MatchingFormProps {
-  submitHandler: (arg: Report) => void;
+  submitHandler: (arg: ReportPaylod) => void;
   isLoading: boolean;
 }
 

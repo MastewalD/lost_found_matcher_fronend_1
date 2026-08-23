@@ -5,7 +5,7 @@ interface ApiErrorResponse {
   };
 }
 
-interface Report {
+interface ReportPaylod {
   type: "LOST" | "FOUND";
   itemName: string;
   description: string;

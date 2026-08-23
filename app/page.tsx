@@ -41,14 +41,14 @@ type FindResponse = {
 };
 
 export default function Home() {
-  const [reportData, setReportData] = useState<Report | null>(null);
+  const [reportData, setReportData] = useState<ReportPaylod | null>(null);
   const [findMatchingItems, { isLoading: isMatchingLoading }] =
     useFindMatchingItemsMutation();
   const [result, setResult] = useState<FindResponse | null>(null);
   const [reportLostItems, { isLoading: isReportingLoading }] =
     useReportLostItemsMutation();
 
-  async function handleFindMatching(data: Report) {
+  async function handleFindMatching(data: ReportPaylod) {
     setReportData(data);
     const itemData = {
       type: data.type,
@@ -72,7 +72,7 @@ export default function Home() {
     }
   }
 
-  async function handleReportLostItems(data: Report) {
+  async function handleReportLostItems(data: ReportPaylod) {
     const userData = {
       type: data.type,
       itemName: data.itemName,
