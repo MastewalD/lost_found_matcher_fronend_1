@@ -109,6 +109,13 @@ public/              Static assets
 types/               Shared TypeScript declarations
 ```
 
+## Deployment
+
+The frontend is deployed on vercel:
+
+https://l0st-f0und-matcher.vercel.app/
+
+
 ## Production
 
 Build and run the app with:
