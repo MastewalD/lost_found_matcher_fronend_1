@@ -9,7 +9,7 @@ report an item so it can be discovered later.
 - Search for matching lost items using item details.
 - Submit lost or found item reports.
 - See match confidence, match strength, and the signals behind each result.
-- Validate report data in the browser before submitting it.
+- Validate report info in the browser before submitting it.
 - Use a responsive interface on desktop and mobile.
 
 ## Tech Stack
